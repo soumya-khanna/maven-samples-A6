@@ -14,6 +14,7 @@ pipeline {
     stage('bisect') {
       steps {
         sh 'run mvn clean test'
+        sh 'reset'
       }
     }
   tools {
