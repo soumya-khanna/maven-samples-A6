@@ -3,30 +3,19 @@ pipeline {
   stages {
     stage('check out') {
       steps {
-        git(url: 'https://github.com/soumya-khanna/maven-samples', branch: 'master')
+        git(url: 'https://github.com/soumya-khanna/maven-samples.git', branch: 'master')
       }
     }
-    stage('run') {
+    stage('bisect') {
       steps {
-        sh 'mvn verify'
+        sh 'start 198644632661c67b6c32f59e9047c11a70685e15 98ac319c0cff47b4d39a1a7b61b4e195cfa231e5'
       }
     }
-    stage('test') {
+    stage('bisect') {
       steps {
-        sh 'mvn test'
+        sh 'run mvn clean test'
       }
     }
-    stage('verify') {
-      steps {
-        sh 'mvn verify'
-      }
-    }
-    stage('clean') {
-      steps {
-        sh 'mvn clean'
-      }
-    }
-  }
   tools {
     maven 'SE465A6M'
     jdk 'SE465A6J'
