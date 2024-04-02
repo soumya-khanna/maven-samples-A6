@@ -13,6 +13,18 @@ pipeline {
       }
     }
 
+    stage('run') {
+      steps {
+        sh 'mvn clean test'
+      }
+    }
+
+    stage('reset') {
+      steps {
+        sh 'bisect reset'
+      }
+    }
+
   }
   tools {
     maven 'SE465A6M'
