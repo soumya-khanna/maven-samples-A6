@@ -1,9 +1,5 @@
 pipeline {
   agent any
-  tools {
-    maven 'SE465A6M'
-    jdk 'SE465A6J'
-  }
   stages {
     stage('check out') {
       steps {
@@ -29,5 +25,9 @@ pipeline {
       }
     }
 
+  }
+  tools {
+    maven 'SE465A6M'
+    jdk 'SE465A6J'
   }
 }
