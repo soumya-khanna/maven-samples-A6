@@ -19,12 +19,6 @@ pipeline {
       }
     }
 
-    stage('reset') {
-      steps {
-        sh 'bisect reset'
-      }
-    }
-
   }
   tools {
     maven 'SE465A6M'
